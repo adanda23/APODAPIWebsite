@@ -1,0 +1,48 @@
+#title {
+  font-size: 30px;
+  color: #9DB4C0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+}
+
+body {
+  background-color: #253237;
+  padding: 25px;
+}
+
+p {
+  color: #9DB4C0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  padding-top: 22px;
+}
+
+.button-35 {
+  align-items: center;
+  background-color: #9DB4C0;
+  border-radius: 12px;
+  box-sizing: border-box;
+  color: #253237;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-35:hover {
+  box-shadow: #E0FBFC 0 0 0 3px, transparent 0 0 0 0;
+}
