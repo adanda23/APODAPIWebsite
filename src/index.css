@@ -1,6 +1,6 @@
 #title {
   font-size: 30px;
-  color: #9DB4C0;
+  color: #e1e8ec;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
 }
@@ -11,15 +11,20 @@ body {
 }
 
 p {
-  color: #9DB4C0;
+  color: #e1e8ec;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   padding-top: 22px;
 }
 
+.example-photos {
+  padding-right: 12px;
+  padding-bottom: 12px;
+}
+
 .button-35 {
   align-items: center;
-  background-color: #9DB4C0;
+  background-color: #e1e8ec;
   border-radius: 12px;
   box-sizing: border-box;
   color: #253237;
@@ -45,4 +50,17 @@ p {
 
 .button-35:hover {
   box-shadow: #E0FBFC 0 0 0 3px, transparent 0 0 0 0;
+}
+
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  filter: blur(4px);
 }
