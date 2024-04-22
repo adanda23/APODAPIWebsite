@@ -3,6 +3,7 @@
   color: #e1e8ec;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
+  text-align: center;
 }
 
 body {
@@ -20,6 +21,11 @@ p {
 .example-photos {
   padding-right: 12px;
   padding-bottom: 12px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .button-35 {
@@ -50,6 +56,10 @@ p {
 
 .button-35:hover {
   box-shadow: #E0FBFC 0 0 0 3px, transparent 0 0 0 0;
+}
+
+.down {
+  padding-top: 10px;
 }
 
 #background-video {

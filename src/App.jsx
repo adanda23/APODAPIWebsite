@@ -22,20 +22,20 @@ function App() {
 
   return (
     <main>
-      <div>
-        <h1 id="title">My Website</h1>
-      </div>
-      <button onClick={() => {
-                  handleClick();
-                  changeData();
-                }} class="button-35">{buttonText}</button>
-      <p>Example Images:</p>
-      <div>
+      <>
+        <h1 id="title">Satellite Picture Generator</h1>
+      </>
+        <p>Example Images:</p>
+      <div class="wrapper">
         <img class="example-photos" src="src\assets\ex1.png" alt="Satellite Picture" height={250} width={250}></img>
         <img class="example-photos" src="src\assets\ex2.png" alt="Satellite Picture" height={250} width={250}></img>
         <img class="example-photos" src="src\assets\ex3.png" alt="Satellite Picture" height={250} width={250}></img>
         <img class="example-photos" src="src\assets\ex4.png" alt="Satellite Picture" height={250} width={250}></img>
       </div>
+      <button onClick={() => {
+                  handleClick();
+                  changeData();
+                }} class="button-35">{buttonText}</button>
       <video autoPlay muted loop id="background-video">
         <source src="src\assets\backgroundvid.mp4" type="video/mp4"></source>
       </video>
