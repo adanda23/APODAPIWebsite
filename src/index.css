@@ -19,8 +19,10 @@ p {
   color: #e1e8ec;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
-  padding-top: 22px;
+  padding: 22px;
   font-size: 20px;
+  background-color: rgba(26, 62, 75, 0.1);
+  border-radius: 12px;
 }
 
 label {
@@ -35,11 +37,33 @@ label {
 .example-photos {
   padding-right: 12px;
   padding-bottom: 12px;
+  filter: drop-shadow(0 0 0.75rem rgb(14, 30, 35));
+}
+
+.result-photo {
+  padding-right: 12px;
+  padding-bottom: 12px;
+  filter: drop-shadow(0 0 0.75rem rgb(14, 30, 35));
+  padding-top: 20px;
+}
+
+input {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  width: 70px;
+  border-radius: 12px;
+  padding: 5px;
 }
 
 .wrapper {
   display: flex;
   justify-content: center;
+}
+
+.space {
+  padding-bottom: 10;
+  padding-top: 10;
 }
 
 .button-35 {
