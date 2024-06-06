@@ -44,7 +44,7 @@ function App() {
       <>
         <h1 id="title">NASA Astronomy Picture of the Day Explorer</h1>
       </>
-      <p>This webesite utilizes NASA's APOD (Astronomy Picture of the Day) API. You can configure the year, month, and day to get different photos! The photo may take a second to load and some dates may not have a corresponding photo/description.</p>
+      <p>This website utilizes NASA's APOD (Astronomy Picture of the Day) API. You can configure the year, month, and day to get different photos! The photo may take a second to load and some dates may not have a corresponding photo/description.</p>
       <div class="wrapper">
         <img class="example-photos" src="FalconMoon_Madow_960.jpg" alt="Image of rocket shooting to the moon" height={250} width={250}></img>
         <img class="example-photos" src="Image964_1024.jpg" alt="Image of a galaxy" height={250} width={250}></img>
