@@ -46,10 +46,10 @@ function App() {
       </>
       <p>This webesite utilizes NASA's APOD (Astronomy Picture of the Day) API. You can configure the year, month, and day to get different photos! The photo may take a second to load and some dates may not have a corresponding photo/description.</p>
       <div class="wrapper">
-        <img class="example-photos" src="src\assets\FalconMoon_Madow_960.jpg" alt="Image of rocket shooting to the moon" height={250} width={250}></img>
-        <img class="example-photos" src="src\assets\Image964_1024.jpg" alt="Image of a galaxy" height={250} width={250}></img>
-        <img class="example-photos" src="src\assets\SarArcNz_McDonald_960.jpg" alt="Image of an aurora" height={250} width={250}></img>
-        <img class="example-photos" src="src\assets\ZetaOph_spitzer_960.jpg" alt="Image of a galaxy" height={250} width={250}></img>
+        <img class="example-photos" src="FalconMoon_Madow_960.jpg" alt="Image of rocket shooting to the moon" height={250} width={250}></img>
+        <img class="example-photos" src="Image964_1024.jpg" alt="Image of a galaxy" height={250} width={250}></img>
+        <img class="example-photos" src="SarArcNz_McDonald_960.jpg" alt="Image of an aurora" height={250} width={250}></img>
+        <img class="example-photos" src="ZetaOph_spitzer_960.jpg" alt="Image of a galaxy" height={250} width={250}></img>
       </div >
       <div class="container">
         <div>
@@ -83,7 +83,7 @@ function App() {
         </div>
       </div>
       <video autoPlay muted loop id="background-video">
-        <source src="src\assets\backgroundvid.mp4" type="video/mp4"></source>
+        <source src="backgroundvid.mp4" type="video/mp4"></source>
       </video>
     </main>
   )
