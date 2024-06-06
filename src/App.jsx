@@ -1,62 +1,87 @@
 import { useState } from 'react'
+import { apikey } from "./apikey"
 
-function App() {
-
-  const [buttonText, setButtonText] = useState('Get Pictures');
-  const [heroData, setHeroData] = useState("https://api.nasa.gov/planetary/earth/imagery?lon=-90.33&lat=30.78&date=2020-01-01&dim=0.15&api_key=sFbPQNVBu4cflCZxqlKGxC6ZWiakIWhqiMXNOatX");
-  const [latitude, setLatitude] = useState("0");
-  const [longitude, setLongitude] = useState("0");
-  const apiKey = "sFbPQNVBu4cflCZxqlKGxC6ZWiakIWhqiMXNOatX";
+function App() {  
+  const [buttonText, setButtonText] = useState('Get Picture');
+  const [pictureData, setPictureData] = useState("https://apod.nasa.gov/apod/image/2401/ngc1232b_vlt_960.jpg");
+  const [year, setYear] = useState("2024");
+  const [month, setMonth] = useState("01");
+  const [day, setDay] = useState("01");
+  const [description, setDescription] = useState("Fill in a date and press the button to get a picture and description.")
 
   const handleClick = () => {
     setButtonText('Loading...');
     setTimeout(() => {
-        setButtonText('Get Pictures');
-    }, 10000); // Reverts back to 'Submit' after 2 seconds
+        setButtonText('Get Picture');
+    }, 3000); // Reverts back to 'Submit' after 2 seconds
   };
 
-  const changeData = () => {
-    setLatitude(document.getElementById("Latitude").value);
-    setLongitude(document.getElementById("Longitude").value);
-    
-    // const response =  fetch("https://api.nasa.gov/planetary/earth/imagery?lon="+longitude+"&lat="+latitude+"&date=2018-01-01&dim=0.15&api_key=sFbPQNVBu4cflCZxqlKGxC6ZWiakIWhqiMXNOatX");
-    // const photo = response.json()\\
-    setHeroData("https://api.nasa.gov/planetary/earth/imagery?lon="+longitude+"&lat="+latitude+"&date=2022-01-01&dim=0.15&api_key=sFbPQNVBu4cflCZxqlKGxC6ZWiakIWhqiMXNOatX");
-    console.log(heroData)
+  const handleYearChange = (element) => {
+    setYear(element.target.value);
+  };
+
+  const handleMonthChange = (element) => {
+    setMonth(element.target.value);
+  };
+
+  const handleDayChange = (element) => {
+    setDay(element.target.value);
+  };
+
+  async function changeData() {
+    const response = await fetch("https://api.nasa.gov/planetary/apod?api_key="+apikey+"&date="+year+"-"+month+"-"+day);
+    const jresponse = await response.json()
+    const url = jresponse.url
+    const explanation = jresponse.explanation
+    setPictureData(url);
+    setDescription(explanation)
+    console.log(url);
   };
 
 
   return (
     <main>
       <>
-        <h1 id="title">Satellite Picture Generator</h1>
+        <h1 id="title">NASA Astronomy Picture of the Day Explorer</h1>
       </>
-      <p>This webesite utilizes NASA's open Earth API. You can configure the longitude and latitude values of the photo, as well as the date. Note that 
-        the returned picture may not match the supplied date exactly. Instead, the image closest to the supplied date is returned. </p>
-        <p class="center">Example Images:</p>
+      <p>This webesite utilizes NASA's APOD (Astronomy Picture of the Day) API. You can configure the year, month, and day to get different photos! The photo may take a second to load and some dates may not have a corresponding photo/description.</p>
       <div class="wrapper">
-        <img class="example-photos" src="src\assets\ex1.png" alt="Satellite Picture" height={250} width={250}></img>
-        <img class="example-photos" src="src\assets\ex2.png" alt="Satellite Picture" height={250} width={250}></img>
-        <img class="example-photos" src="src\assets\ex3.png" alt="Satellite Picture" height={250} width={250}></img>
-        <img class="example-photos" src="src\assets\ex4.png" alt="Satellite Picture" height={250} width={250}></img>
+        <img class="example-photos" src="src\assets\FalconMoon_Madow_960.jpg" alt="Image of rocket shooting to the moon" height={250} width={250}></img>
+        <img class="example-photos" src="src\assets\Image964_1024.jpg" alt="Image of a galaxy" height={250} width={250}></img>
+        <img class="example-photos" src="src\assets\SarArcNz_McDonald_960.jpg" alt="Image of an aurora" height={250} width={250}></img>
+        <img class="example-photos" src="src\assets\ZetaOph_spitzer_960.jpg" alt="Image of a galaxy" height={250} width={250}></img>
       </div >
-      <br></br>
-        <form>
-          <label for="Longitude">Longitude:  </label>
-          <input type="text" id="Longitude" name="Longitude"></input>
-        </form>
-      <br></br>
-        <form> 
-          <label for="Latitude">Latitude:  </label>
-          <input type="text" id="Latitude" name="Latitude"></input>
-        </form>
-      <br></br>
-      <button onClick={() => {
-                  handleClick();
-                  changeData();
-                }} class="button-35">{buttonText}</button>
-      <br></br>
-      <img class="result-photo" src={heroData} height={250} width={250}></img>
+      <div class="container">
+        <div>
+          <br></br>
+            <form>
+              <label for="Year">Year:  </label>
+              <input type="text" id="Year" name="Year" onChange={handleYearChange}></input>
+            </form>
+          <br></br>
+            <form> 
+              <label for="Month">Month:  </label>
+              <input type="text" id="Month" name="Month" onChange={handleMonthChange}></input>
+            </form>
+          <br></br>
+            <form> 
+              <label for="Day">Day:  </label>
+              <input type="text" id="Day" name="Day" onChange={handleDayChange}></input>
+            </form>
+          <br></br>
+          <button onClick={() => {
+                      handleClick();
+                      changeData();
+                    }} class="button-35">{buttonText}</button>
+          <br></br>
+        </div>
+        <div>
+          <img class="result-photo" alt="Astronomy Photo of the Day" src={pictureData} height={250} width={250}></img>
+        </div>
+        <div>
+          <p>{description}</p>
+        </div>
+      </div>
       <video autoPlay muted loop id="background-video">
         <source src="src\assets\backgroundvid.mp4" type="video/mp4"></source>
       </video>
